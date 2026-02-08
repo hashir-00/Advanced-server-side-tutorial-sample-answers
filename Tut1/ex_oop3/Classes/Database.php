@@ -6,7 +6,7 @@ class Database
     private $dbName;
     private $username;
     private $password;
-    private ?PDO $pdo = null;
+    private $pdo = null;
 
     public function __construct($host = 'localhost',$dbName = 'tut1', $username = 'root', $password = '') {
         $this->host = $host;
@@ -15,7 +15,7 @@ class Database
         $this->password = $password;
     }
 
-    public function getConnection(): PDO
+    public function getConnection()
     {
         if ($this->pdo === null) {
             $dsn = "mysql:host={$this->host};dbname={$this->dbName};charset=utf8mb4";
