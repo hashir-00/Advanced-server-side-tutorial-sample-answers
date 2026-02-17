@@ -46,4 +46,16 @@ class Catmodel extends CI_Model {
 		$this->db->update('cats');
 	}
 
+	public function storeSession($session_id, $cat_id) {
+		$this->db->insert('sessions', array(
+			'session_id' => $session_id,
+			'cat_id' => $cat_id,
+			'timestamp' => time(),
+		));
+	}
+	public function loadSession($session_id){
+		return $this->db->where('id', (int)$session_id);
+		
+	}
+
 }
